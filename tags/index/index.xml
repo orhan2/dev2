@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>index on Notepadium</title>
     <link>/tags/index/</link>
@@ -14,10 +14,11 @@
     <item>
       <title>Posts</title>
       <link>/post/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Aug 2020 14:45:11 +0300</pubDate>
       
       <guid>/post/</guid>
       <description></description>
+      
     </item>
     
   </channel>
