@@ -1,14 +1,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on OyunDev</title>
-    <link>https://oyundev.com/tags/</link>
-    <description>Recent content in Tags on OyunDev</description>
+    <title>c# on OyunDev</title>
+    <link>https://oyundev.com/tags/c#/</link>
+    <description>Recent content in c# on OyunDev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© oyundev.com</copyright>
     <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://oyundev.com/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://oyundev.com/tags/c#/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.82.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Faster Directory Size Calculator&nbsp;&ndash;&nbsp;OyunDev</title><link rel="stylesheet" href="/css/core.min.7b0b37aef2228a2d4e5bdc7ffa142bb8c43f597c8f291389cf40f21a13f8b1ab30db9580df799c419ab724f0a029dd60.css" integrity="sha384-ews3rvIiii1OW9x/&#43;hQruMQ/WXyPKROJz0DyGhP4sasw25WA33mcQZq3JPCgKd1g"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Faster Directory Size Calculator" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><img class="site logo" src="/assets/img/crank.svg" alt /><span class="site name">OyunDev</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about/">About</a><a class="nav item" href="https://github%2ecom/oyundev/"target="_blank" rel="noopener noreferrer">Github</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">Faster Directory Size Calculator</h1><p class="article date">Mar 11, 2019<span class="reading-time"> • 5 minutes to read</span></p></section><article class="article markdown-body"><h1 id="a-faster-version-of-linuxunix-du--hs-command-implemented-in-rustgoc">A faster version of Linux/Unix “du -hs” command implemented in Rust/Go/C#</h1>
+<p>Find out fastest Rust/Go/C# code calculating total disk usage of a directory under Windows and Linux.</p>
+<p>This is an experiment inspired by <a href="https://github.com/artempyanykh/rdu">https://github.com/artempyanykh/rdu</a> project implementing a fast directory disk usage calculator, similar to unix/linux du tool but using rust-lang. Measurements are taken with Hyperfine v1.11.0: <a href="https://github.com/sharkdp/hyperfine">https://github.com/sharkdp/hyperfine</a>. All measurements are with warm disk cache.</p>
+<p><strong>Linux:</strong> Debian GNU/Linux 9 (stretch) under WSL2 (Linux 4.19.128-microsoft-standard x86_64 GNU/Linux)<br/>
+<strong>Windows 10 x64:</strong> Microsoft Windows [Version 10.0.19042.450]</p>
+<h3 id="disk-info">Disk Info:</h3>
+<pre><code>Sequential write [4MB] block        Avg: 819,08MB/s
+Sequential read [4MB] block         Avg: 2412,23MB/s
+Random write [4KB] block            Avg: 120,39MB/s
+Random read [4KB] block             Avg: 323,64MB/s
+Memory copy [4MB] block             Avg: 3703,64MB/s
+</code></pre><h3 id="target-directory">Target Directory:</h3>
+<pre><code>Files:        5403
+Directories:  813
+Size:         1.227.079.350 bytes
+</code></pre><table>
+<thead>
+<tr>
+<th>Contenders</th>
+<th>Programming Language</th>
+<th style="text-align:right">Size Bytes Linux</th>
+<th style="text-align:right">Size Bytes Win10</th>
+<th>Repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>du/du64.exe</td>
+<td>C/C++</td>
+<td style="text-align:right">105.640</td>
+<td style="text-align:right">465.784</td>
+<td>Linux: internal /usr/bin/du, Windows: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/du">https://docs.microsoft.com/en-us/sysinternals/downloads/du</a></td>
+</tr>
+<tr>
+<td>rdu-async-par</td>
+<td>Rust</td>
+<td style="text-align:right">1.243.632</td>
+<td style="text-align:right">1.126.400</td>
+<td><a href="https://github.com/artempyanykh/rdu">https://github.com/artempyanykh/rdu</a></td>
+</tr>
+<tr>
+<td>diskus</td>
+<td>Rust</td>
+<td style="text-align:right">801.088</td>
+<td style="text-align:right">759.808</td>
+<td><a href="https://github.com/sharkdp/diskus">https://github.com/sharkdp/diskus</a></td>
+</tr>
+<tr>
+<td>du-rs</td>
+<td>Rust</td>
+<td style="text-align:right">649.568</td>
+<td style="text-align:right">459.776</td>
+<td><a href="https://github.com/oyundev/du-rs">https://github.com/oyundev/du-rs</a></td>
+</tr>
+<tr>
+<td>du-go</td>
+<td>Go</td>
+<td style="text-align:right">1.585.304</td>
+<td style="text-align:right">1.735.168</td>
+<td><a href="https://github.com/oyundev/du-go">https://github.com/oyundev/du-go</a></td>
+</tr>
+<tr>
+<td>du-cs</td>
+<td>C#</td>
+<td style="text-align:right">5.172.232</td>
+<td style="text-align:right">4.855.296</td>
+<td><a href="https://github.com/oyundev/du-cs">https://github.com/oyundev/du-cs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes">Notes:</h3>
+<ul>
+<li>x86-64 Platform: amd64<br></li>
+<li>Rust version: 1.52<br></li>
+<li>Go version: go1.16.3<br></li>
+<li>.Net 5.0 C# code compiled to native binary using experimental .net native AOT compiler at <a href="https://github.com/dotnet/runtimelab/tree/feature/NativeAOT/samples/HelloWorld">https://github.com/dotnet/runtimelab/tree/feature/NativeAOT/samples/HelloWorld</a></li>
+</ul>
+<h3 id="linux-debian-9-wsl2">Linux Debian 9 (WSL2):</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">~$ hyperfine -L exe <span class="s1">&#39;du -hs&#39;</span>,./rdu-async-par,<span class="s1">&#39;./du-rs -p 64 -t 64&#39;</span>,<span class="s1">&#39;./du-cs 64&#39;</span>,./du-go,<span class="s1">&#39;./diskus --threads 64&#39;</span> <span class="s1">&#39;{exe} /mnt/r/test&#39;</span>
+Benchmark <span class="c1">#1: du -hs /mnt/r/test</span>
+
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:     10.058 s ±  0.375 s    <span class="o">[</span>User: 183.9 ms, System: 3104.2 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    9.562 s … 10.570 s    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#2: ./rdu-async-par /mnt/r/test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      5.426 s ±  0.030 s    <span class="o">[</span>User: 723.1 ms, System: 6757.7 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    5.390 s …  5.494 s    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#3: ./du-rs -p 64 -t 64 /mnt/r/test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      3.717 s ±  0.016 s    <span class="o">[</span>User: 235.6 ms, System: 5625.0 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    3.687 s …  3.735 s    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#4: ./du-cs 64 /mnt/r/test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      4.566 s ±  0.040 s    <span class="o">[</span>User: 682.7 ms, System: 6599.2 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    4.515 s …  4.642 s    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#5: ./du-go /mnt/r/test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      3.210 s ±  0.016 s    <span class="o">[</span>User: 404.6 ms, System: 4832.7 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    3.192 s …  3.231 s    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#6: ./diskus --threads 64 /mnt/r/test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      4.552 s ±  0.141 s    <span class="o">[</span>User: 1.723 s, System: 7.016 s<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    4.305 s …  4.732 s    <span class="m">10</span> runs
+
+Summary
+  <span class="s1">&#39;./du-go /mnt/r/test&#39;</span> ran
+    1.16 ± 0.01 <span class="nb">times</span> faster than <span class="s1">&#39;./du-rs -p 64 -t 64 /mnt/r/test&#39;</span>
+    1.42 ± 0.04 <span class="nb">times</span> faster than <span class="s1">&#39;./diskus --threads 64 /mnt/r/test&#39;</span>
+    1.42 ± 0.01 <span class="nb">times</span> faster than <span class="s1">&#39;./du-cs 64 /mnt/r/test&#39;</span>
+    1.69 ± 0.01 <span class="nb">times</span> faster than <span class="s1">&#39;./rdu-async-par /mnt/r/test&#39;</span>
+    3.13 ± 0.12 <span class="nb">times</span> faster than <span class="s1">&#39;du -hs /mnt/r/test&#39;</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">Command</th>
+<th style="text-align:right">Mean [s]</th>
+<th style="text-align:right">Min [s]</th>
+<th style="text-align:right">Max [s]</th>
+<th style="text-align:right">Relative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>du -hs /mnt/r/test</code></td>
+<td style="text-align:right">10.058 ± 0.375</td>
+<td style="text-align:right">9.562</td>
+<td style="text-align:right">10.570</td>
+<td style="text-align:right">3.13 ± 0.12</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>./rdu-async-par /mnt/r/test</code></td>
+<td style="text-align:right">5.426 ± 0.030</td>
+<td style="text-align:right">5.390</td>
+<td style="text-align:right">5.494</td>
+<td style="text-align:right">1.69 ± 0.01</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>./du-rs -p 64 -t 64 /mnt/r/test</code></td>
+<td style="text-align:right">3.717 ± 0.016</td>
+<td style="text-align:right">3.687</td>
+<td style="text-align:right">3.735</td>
+<td style="text-align:right">1.16 ± 0.01</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>./du-cs 64 /mnt/r/test</code></td>
+<td style="text-align:right">4.566 ± 0.040</td>
+<td style="text-align:right">4.515</td>
+<td style="text-align:right">4.642</td>
+<td style="text-align:right">1.42 ± 0.01</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>./du-go /mnt/r/test</code></td>
+<td style="text-align:right">3.210 ± 0.016</td>
+<td style="text-align:right">3.192</td>
+<td style="text-align:right">3.231</td>
+<td style="text-align:right">1.00</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>./diskus --threads 64 /mnt/r/test</code></td>
+<td style="text-align:right">4.552 ± 0.141</td>
+<td style="text-align:right">4.305</td>
+<td style="text-align:right">4.732</td>
+<td style="text-align:right">1.42 ± 0.04</td>
+</tr>
+</tbody>
+</table>
+<h3 id="windows-10-x64">Windows 10 (x64):</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">PS&gt; .<span class="se">\h</span>yperfine -L exe <span class="s2">&#34;du64.exe -nobanner&#34;</span>,rdu-async-par.exe,du-rs.exe,<span class="s2">&#34;du-cs.exe -t 64&#34;</span>,du-go.exe,<span class="s2">&#34;diskus.exe --threads 64&#34;</span> <span class="s2">&#34;{exe} r:\test&#34;</span>
+Benchmark <span class="c1">#1: du64.exe -nobanner r:\test</span>
+
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:     703.1 ms ±   5.3 ms    <span class="o">[</span>User: 1.4 ms, System: 6.2 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:   692.4 ms … 709.2 ms    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#2: rdu-async-par.exe r:\test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:     344.9 ms ±  24.3 ms    <span class="o">[</span>User: 4.1 ms, System: 5.4 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:   325.1 ms … 411.0 ms    <span class="m">10</span> runs
+
+Benchmark <span class="c1">#3: du-rs.exe r:\test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      72.4 ms ±   5.1 ms    <span class="o">[</span>User: 3.5 ms, System: 5.8 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    66.8 ms …  93.3 ms    <span class="m">28</span> runs
+
+Benchmark <span class="c1">#4: du-cs.exe -t 64 r:\test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      86.4 ms ±  10.5 ms    <span class="o">[</span>User: 1.9 ms, System: 4.6 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    71.3 ms … 109.5 ms    <span class="m">29</span> runs
+
+Benchmark <span class="c1">#5: du-go.exe r:\test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:      57.9 ms ±   2.4 ms    <span class="o">[</span>User: 0.6 ms, System: 2.6 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:    54.1 ms …  63.5 ms    <span class="m">42</span> runs
+
+Benchmark <span class="c1">#6: diskus.exe --threads 64 r:\test</span>
+  Time <span class="o">(</span>mean ± σ<span class="o">)</span>:     156.8 ms ±   4.5 ms    <span class="o">[</span>User: 2.5 ms, System: 4.4 ms<span class="o">]</span>
+  Range <span class="o">(</span>min … max<span class="o">)</span>:   150.4 ms … 169.4 ms    <span class="m">16</span> runs
+
+Summary
+  <span class="s1">&#39;du-go.exe r:\test&#39;</span> ran
+    1.25 ± 0.10 <span class="nb">times</span> faster than <span class="s1">&#39;du-rs.exe r:\test&#39;</span>
+    1.49 ± 0.19 <span class="nb">times</span> faster than <span class="s1">&#39;du-cs.exe -t 64 r:\test&#39;</span>
+    2.71 ± 0.14 <span class="nb">times</span> faster than <span class="s1">&#39;diskus.exe --threads 64 r:\test&#39;</span>
+    5.96 ± 0.49 <span class="nb">times</span> faster than <span class="s1">&#39;rdu-async-par.exe r:\test&#39;</span>
+   12.14 ± 0.51 <span class="nb">times</span> faster than <span class="s1">&#39;du64.exe -nobanner r:\test&#39;</span>
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">Command</th>
+<th style="text-align:right">Mean [ms]</th>
+<th style="text-align:right">Min [ms]</th>
+<th style="text-align:right">Max [ms]</th>
+<th style="text-align:right">Relative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>du64.exe -nobanner r:\test</code></td>
+<td style="text-align:right">703.1 ± 5.3</td>
+<td style="text-align:right">692.4</td>
+<td style="text-align:right">709.2</td>
+<td style="text-align:right">12.14 ± 0.51</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>rdu-async-par.exe r:\test</code></td>
+<td style="text-align:right">344.9 ± 24.3</td>
+<td style="text-align:right">325.1</td>
+<td style="text-align:right">411.0</td>
+<td style="text-align:right">5.96 ± 0.49</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>du-rs.exe r:\test</code></td>
+<td style="text-align:right">72.4 ± 5.1</td>
+<td style="text-align:right">66.8</td>
+<td style="text-align:right">93.3</td>
+<td style="text-align:right">1.25 ± 0.10</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>du-cs.exe -t 64 r:\test</code></td>
+<td style="text-align:right">86.4 ± 10.5</td>
+<td style="text-align:right">71.3</td>
+<td style="text-align:right">109.5</td>
+<td style="text-align:right">1.49 ± 0.19</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>du-go.exe r:\test</code></td>
+<td style="text-align:right">57.9 ± 2.4</td>
+<td style="text-align:right">54.1</td>
+<td style="text-align:right">63.5</td>
+<td style="text-align:right">1.00</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>diskus.exe --threads 64 r:\test</code></td>
+<td style="text-align:right">156.8 ± 4.5</td>
+<td style="text-align:right">150.4</td>
+<td style="text-align:right">169.4</td>
+<td style="text-align:right">2.71 ± 0.14</td>
+</tr>
+</tbody>
+</table>
+<h3 id="who-is-the-winner-">Who is the winner ?</h3>
+<ul>
+<li>Go is fastest of all in both platforms. I tried a lot of different approaches in Rust (without unsafe hacks) to speed it up but coroutine tasks in Go-lang are realy fast and efficient.<br></li>
+<li>Sadly none of my attemts using Rust tokio-main with multithreaded runtime flavor, async-std, walkdir, rayon etc. helped to speed up rust. Only using Xudong-Huang&rsquo;s coroutines implementation (<a href="https://github.com/Xudong-Huang/may">https://github.com/Xudong-Huang/may</a>) almost helped to match the speed of Go implementation.<br></li>
+<li>Diskus when using 64 threads is very fast and beats standard solid implementation of rdu-async-par. At some point though increasing thread count begins to degrade performance.<br></li>
+<li>There is an interesting comment in diskus source code about how performance is effected by context switching in multithreading and I/O Queue.
+<br></li>
+</ul>
+</article><section class="article labels"><a class="category" href=/categories/programming/>programming</a><a class="category" href=/categories/github/>github</a><a class="tag" href=/tags/go/>go</a><a class="tag" href=/tags/rust/>rust</a><a class="tag" href=/tags/c%23/>c#</a></section><section class="article author"><a class="site home" href="/"><img class="avatar" src="/assets/img/crank.svg" alt></a><br/><div class="bio">速 (speed)</div><div class="details"><a class="item" href="https://github.com/https://github.com/oyundev" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-github"></span>&nbsp;https://github.com/oyundev</a><a class="item" href="https://twitter.com/https://twitter.com/oyundev" target="_blank" rel="noopener noreferrer"><span class="iconfont icon-twitter"></span>&nbsp;@https://twitter.com/oyundev</a></div>
+</section>
+</div>
+<div class="article bottom"></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">© oyundev.com</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div>
+</section></body>
+
+</html>

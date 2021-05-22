@@ -1,75 +1,319 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Notepadium</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on Notepadium</description>
+    <title>Posts on OyunDev</title>
+    <link>https://oyundev.com/post/</link>
+    <description>Recent content in Posts on OyunDev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>©2020 Notepadium.</copyright>
-    <lastBuildDate>Sun, 23 Aug 2020 14:45:11 +0300</lastBuildDate>
+    <copyright>© oyundev.com</copyright>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://oyundev.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My First Post</title>
-      <link>/post/my-first-post/</link>
-      <pubDate>Sun, 23 Aug 2020 14:45:11 +0300</pubDate>
+      <title></title>
+      <link>https://oyundev.com/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/my-first-post/</guid>
-      <description>test new page  aaa bbb ccc  </description>
-      
+      <guid>https://oyundev.com/archives/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Markdown Syntax Guide</title>
-      <link>/post/markdown-syntax/</link>
+      <title>Faster Directory Size Calculator</title>
+      <link>https://oyundev.com/post/directory-usage/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/markdown-syntax/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-      
+      <guid>https://oyundev.com/post/directory-usage/</guid>
+      <description>&lt;h1 id=&#34;a-faster-version-of-linuxunix-du--hs-command-implemented-in-rustgoc&#34;&gt;A faster version of Linux/Unix “du -hs” command implemented in Rust/Go/C#&lt;/h1&gt;
+&lt;p&gt;Find out fastest Rust/Go/C# code calculating total disk usage of a directory under Windows and Linux.&lt;/p&gt;
+&lt;p&gt;This is an experiment inspired by &lt;a href=&#34;https://github.com/artempyanykh/rdu&#34;&gt;https://github.com/artempyanykh/rdu&lt;/a&gt; project implementing a fast directory disk usage calculator, similar to unix/linux du tool but using rust-lang. Measurements are taken with Hyperfine v1.11.0: &lt;a href=&#34;https://github.com/sharkdp/hyperfine&#34;&gt;https://github.com/sharkdp/hyperfine&lt;/a&gt;. All measurements are with warm disk cache.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Linux:&lt;/strong&gt; Debian GNU/Linux 9 (stretch) under WSL2 (Linux 4.19.128-microsoft-standard x86_64 GNU/Linux)&lt;br/&gt;
+&lt;strong&gt;Windows 10 x64:&lt;/strong&gt; Microsoft Windows [Version 10.0.19042.450]&lt;/p&gt;
+&lt;h3 id=&#34;disk-info&#34;&gt;Disk Info:&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Sequential write [4MB] block        Avg: 819,08MB/s
+Sequential read [4MB] block         Avg: 2412,23MB/s
+Random write [4KB] block            Avg: 120,39MB/s
+Random read [4KB] block             Avg: 323,64MB/s
+Memory copy [4MB] block             Avg: 3703,64MB/s
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;target-directory&#34;&gt;Target Directory:&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;Files:        5403
+Directories:  813
+Size:         1.227.079.350 bytes
+&lt;/code&gt;&lt;/pre&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Contenders&lt;/th&gt;
+&lt;th&gt;Programming Language&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Size Bytes Linux&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Size Bytes Win10&lt;/th&gt;
+&lt;th&gt;Repo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;du/du64.exe&lt;/td&gt;
+&lt;td&gt;C/C++&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;105.640&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;465.784&lt;/td&gt;
+&lt;td&gt;Linux: internal /usr/bin/du, Windows: &lt;a href=&#34;https://docs.microsoft.com/en-us/sysinternals/downloads/du&#34;&gt;https://docs.microsoft.com/en-us/sysinternals/downloads/du&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rdu-async-par&lt;/td&gt;
+&lt;td&gt;Rust&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.243.632&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.126.400&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/artempyanykh/rdu&#34;&gt;https://github.com/artempyanykh/rdu&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;diskus&lt;/td&gt;
+&lt;td&gt;Rust&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;801.088&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;759.808&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/sharkdp/diskus&#34;&gt;https://github.com/sharkdp/diskus&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;du-rs&lt;/td&gt;
+&lt;td&gt;Rust&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;649.568&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;459.776&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/oyundev/du-rs&#34;&gt;https://github.com/oyundev/du-rs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;du-go&lt;/td&gt;
+&lt;td&gt;Go&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.585.304&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.735.168&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/oyundev/du-go&#34;&gt;https://github.com/oyundev/du-go&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;du-cs&lt;/td&gt;
+&lt;td&gt;C#&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;5.172.232&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.855.296&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/oyundev/du-cs&#34;&gt;https://github.com/oyundev/du-cs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;notes&#34;&gt;Notes:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;x86-64 Platform: amd64&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Rust version: 1.52&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Go version: go1.16.3&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;.Net 5.0 C# code compiled to native binary using experimental .net native AOT compiler at &lt;a href=&#34;https://github.com/dotnet/runtimelab/tree/feature/NativeAOT/samples/HelloWorld&#34;&gt;https://github.com/dotnet/runtimelab/tree/feature/NativeAOT/samples/HelloWorld&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;linux-debian-9-wsl2&#34;&gt;Linux Debian 9 (WSL2):&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;~$ hyperfine -L exe &lt;span class=&#34;s1&#34;&gt;&amp;#39;du -hs&amp;#39;&lt;/span&gt;,./rdu-async-par,&lt;span class=&#34;s1&#34;&gt;&amp;#39;./du-rs -p 64 -t 64&amp;#39;&lt;/span&gt;,&lt;span class=&#34;s1&#34;&gt;&amp;#39;./du-cs 64&amp;#39;&lt;/span&gt;,./du-go,&lt;span class=&#34;s1&#34;&gt;&amp;#39;./diskus --threads 64&amp;#39;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;{exe} /mnt/r/test&amp;#39;&lt;/span&gt;
+Benchmark &lt;span class=&#34;c1&#34;&gt;#1: du -hs /mnt/r/test&lt;/span&gt;
+
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:     10.058 s ±  0.375 s    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 183.9 ms, System: 3104.2 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    9.562 s … 10.570 s    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#2: ./rdu-async-par /mnt/r/test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      5.426 s ±  0.030 s    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 723.1 ms, System: 6757.7 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    5.390 s …  5.494 s    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#3: ./du-rs -p 64 -t 64 /mnt/r/test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      3.717 s ±  0.016 s    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 235.6 ms, System: 5625.0 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    3.687 s …  3.735 s    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#4: ./du-cs 64 /mnt/r/test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      4.566 s ±  0.040 s    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 682.7 ms, System: 6599.2 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    4.515 s …  4.642 s    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#5: ./du-go /mnt/r/test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      3.210 s ±  0.016 s    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 404.6 ms, System: 4832.7 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    3.192 s …  3.231 s    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#6: ./diskus --threads 64 /mnt/r/test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      4.552 s ±  0.141 s    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 1.723 s, System: 7.016 s&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    4.305 s …  4.732 s    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Summary
+  &lt;span class=&#34;s1&#34;&gt;&amp;#39;./du-go /mnt/r/test&amp;#39;&lt;/span&gt; ran
+    1.16 ± 0.01 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;./du-rs -p 64 -t 64 /mnt/r/test&amp;#39;&lt;/span&gt;
+    1.42 ± 0.04 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;./diskus --threads 64 /mnt/r/test&amp;#39;&lt;/span&gt;
+    1.42 ± 0.01 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;./du-cs 64 /mnt/r/test&amp;#39;&lt;/span&gt;
+    1.69 ± 0.01 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;./rdu-async-par /mnt/r/test&amp;#39;&lt;/span&gt;
+    3.13 ± 0.12 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;du -hs /mnt/r/test&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Command&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Mean [s]&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Min [s]&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Max [s]&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Relative&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;du -hs /mnt/r/test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;10.058 ± 0.375&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;9.562&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;10.570&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.13 ± 0.12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;./rdu-async-par /mnt/r/test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;5.426 ± 0.030&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;5.390&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;5.494&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.69 ± 0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;./du-rs -p 64 -t 64 /mnt/r/test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.717 ± 0.016&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.687&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.735&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.16 ± 0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;./du-cs 64 /mnt/r/test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.566 ± 0.040&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.515&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.642&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.42 ± 0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;./du-go /mnt/r/test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.210 ± 0.016&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.192&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;3.231&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;./diskus --threads 64 /mnt/r/test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.552 ± 0.141&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.305&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;4.732&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.42 ± 0.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;windows-10-x64&#34;&gt;Windows 10 (x64):&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;PS&amp;gt; .&lt;span class=&#34;se&#34;&gt;\h&lt;/span&gt;yperfine -L exe &lt;span class=&#34;s2&#34;&gt;&amp;#34;du64.exe -nobanner&amp;#34;&lt;/span&gt;,rdu-async-par.exe,du-rs.exe,&lt;span class=&#34;s2&#34;&gt;&amp;#34;du-cs.exe -t 64&amp;#34;&lt;/span&gt;,du-go.exe,&lt;span class=&#34;s2&#34;&gt;&amp;#34;diskus.exe --threads 64&amp;#34;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;{exe} r:\test&amp;#34;&lt;/span&gt;
+Benchmark &lt;span class=&#34;c1&#34;&gt;#1: du64.exe -nobanner r:\test&lt;/span&gt;
+
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:     703.1 ms ±   5.3 ms    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 1.4 ms, System: 6.2 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:   692.4 ms … 709.2 ms    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#2: rdu-async-par.exe r:\test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:     344.9 ms ±  24.3 ms    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 4.1 ms, System: 5.4 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:   325.1 ms … 411.0 ms    &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#3: du-rs.exe r:\test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      72.4 ms ±   5.1 ms    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 3.5 ms, System: 5.8 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    66.8 ms …  93.3 ms    &lt;span class=&#34;m&#34;&gt;28&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#4: du-cs.exe -t 64 r:\test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      86.4 ms ±  10.5 ms    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 1.9 ms, System: 4.6 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    71.3 ms … 109.5 ms    &lt;span class=&#34;m&#34;&gt;29&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#5: du-go.exe r:\test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:      57.9 ms ±   2.4 ms    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 0.6 ms, System: 2.6 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:    54.1 ms …  63.5 ms    &lt;span class=&#34;m&#34;&gt;42&lt;/span&gt; runs
+
+Benchmark &lt;span class=&#34;c1&#34;&gt;#6: diskus.exe --threads 64 r:\test&lt;/span&gt;
+  Time &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;mean ± σ&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:     156.8 ms ±   4.5 ms    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;User: 2.5 ms, System: 4.4 ms&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+  Range &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;min … max&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:   150.4 ms … 169.4 ms    &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; runs
+
+Summary
+  &lt;span class=&#34;s1&#34;&gt;&amp;#39;du-go.exe r:\test&amp;#39;&lt;/span&gt; ran
+    1.25 ± 0.10 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;du-rs.exe r:\test&amp;#39;&lt;/span&gt;
+    1.49 ± 0.19 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;du-cs.exe -t 64 r:\test&amp;#39;&lt;/span&gt;
+    2.71 ± 0.14 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;diskus.exe --threads 64 r:\test&amp;#39;&lt;/span&gt;
+    5.96 ± 0.49 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;rdu-async-par.exe r:\test&amp;#39;&lt;/span&gt;
+   12.14 ± 0.51 &lt;span class=&#34;nb&#34;&gt;times&lt;/span&gt; faster than &lt;span class=&#34;s1&#34;&gt;&amp;#39;du64.exe -nobanner r:\test&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Command&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Mean [ms]&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Min [ms]&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Max [ms]&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Relative&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;du64.exe -nobanner r:\test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;703.1 ± 5.3&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;692.4&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;709.2&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;12.14 ± 0.51&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;rdu-async-par.exe r:\test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;344.9 ± 24.3&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;325.1&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;411.0&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;5.96 ± 0.49&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;du-rs.exe r:\test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;72.4 ± 5.1&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;66.8&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;93.3&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.25 ± 0.10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;du-cs.exe -t 64 r:\test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;86.4 ± 10.5&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;71.3&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;109.5&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.49 ± 0.19&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;du-go.exe r:\test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;57.9 ± 2.4&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;54.1&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;63.5&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;1.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;diskus.exe --threads 64 r:\test&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;156.8 ± 4.5&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;150.4&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;169.4&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;2.71 ± 0.14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;who-is-the-winner-&#34;&gt;Who is the winner ?&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Go is fastest of all in both platforms. I tried a lot of different approaches in Rust (without unsafe hacks) to speed it up but coroutine tasks in Go-lang are realy fast and efficient.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Sadly none of my attemts using Rust tokio-main with multithreaded runtime flavor, async-std, walkdir, rayon etc. helped to speed up rust. Only using Xudong-Huang&amp;rsquo;s coroutines implementation (&lt;a href=&#34;https://github.com/Xudong-Huang/may&#34;&gt;https://github.com/Xudong-Huang/may&lt;/a&gt;) almost helped to match the speed of Go implementation.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;Diskus when using 64 threads is very fast and beats standard solid implementation of rdu-async-par. At some point though increasing thread count begins to degrade performance.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;There is an interesting comment in diskus source code about how performance is effected by context switching in multithreading and I/O Queue.
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
-      <title>Rich Content</title>
-      <link>/post/rich-content/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <title>About</title>
+      <link>https://oyundev.com/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/rich-content/</guid>
-      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;target=&#34;_blank&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;target=&#34;_blank&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Placeholder Text</title>
-      <link>/post/placeholder-text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/placeholder-text/</guid>
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Math Typesetting</title>
-      <link>/post/math-typesetting/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/math-typesetting/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Emoji Support</title>
-      <link>/post/emoji-support/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
-      
+      <guid>https://oyundev.com/about/</guid>
+      <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Apache Licence 2.0.&lt;/a&gt;
+ Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
+&lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yuin/goldmark&#34;&gt;https://github.com/yuin/goldmark&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/muesli/smartcrop&#34;&gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.&lt;/p&gt;
+&lt;p&gt;Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.&lt;/p&gt;
+&lt;p&gt;Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.&lt;/p&gt;
+&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;GitHub&lt;/a&gt;
+.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
