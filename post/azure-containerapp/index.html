@@ -141,7 +141,7 @@ End result will be a simple web page that only your default Azure AD users can l
 </span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/tweb1&#34;</span><span class="p">]</span><span class="err">
 </span></code></pre></div><h1 id="deploy-container-to-azure-cloud-using-portal">Deploy container to Azure Cloud using Portal</h1>
 <p>At this stage we should have our app container inside our docker hub private repo. I think how to use docker and docker hub is out of scope of this post so I assume we have built our container and pushed it to our private hub repository already.<br><br>
-Creating a web app at Azure Portal using web based UI is very easy. This is just a wizard type UI that you fill out some required values and click next to continue on next step until final page where you review all info and create the webapp. After that we need to configure authentication and create and Azure AD app registration for our webapp. Here steps how to to so:<br></p>
+Creating a web app at Azure Portal using web based UI is very easy. This is just a wizard type UI that you fill out some required values and click next to continue on next step until final page where you review all info and create the webapp. After that we need to configure authentication and create Azure AD app registration for our webapp. Here steps how to to so:<br></p>
 <ul>
 <li>Login to Azure Portal and create a new webapp in app services.
 <ul>
@@ -159,12 +159,12 @@ Creating a web app at Azure Portal using web based UI is very easy. This is just
 <ul>
 <li>APPLICATION_ID, AD_TENANT_ID, REDIRECT_URI.</li>
 <li>These are necessary values to authenticate users with Azure AD provider.</li>
-<li>You should also see setting value for MICROSOFT_PROVIDER_AUTHENTICATION_SECRET already created for us when we added identity provider in previous step.</li>
+<li>You should also see settings value for MICROSOFT_PROVIDER_AUTHENTICATION_SECRET already created for us when we added identity provider in previous step.</li>
 </ul>
 </li>
 </ul>
 <h1 id="deploy-using-azure-cli">Deploy using Azure CLI:</h1>
-<p>Azure CLI is very powerful tool to manage azure resources. We can use it to automate deployment with CI/CD pipelines. I think easiest way to run azure cli is using docker. Run it with the command: ~$ docker run &ndash;rm -it mcr.microsoft.com/azure-cli<br><br>
+<p>Azure CLI is very powerful tool to manage azure resources. We can use it to automate deployment with CI/CD pipelines. I think the easiest way to run azure cli is using docker. Run it with the command: ~$ docker run &ndash;rm -it mcr.microsoft.com/azure-cli<br><br>
 This script below shows how to use cli to create webapp with container, configure environment and set up authentication:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># https://docs.microsoft.com/en-us/cli/azure/install-azure-cli</span>
 <span class="c1"># https://docs.microsoft.com/en-us/cli/azure/run-azure-cli-docker</span>
